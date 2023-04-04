@@ -3,6 +3,8 @@ import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import {FontAwesome , MaterialIcons , Fontisto} from '@expo/vector-icons'
 
+
+
 const Dashboard = (props) => {
   return (
     <ScrollView>
@@ -11,7 +13,7 @@ const Dashboard = (props) => {
       <TouchableOpacity 
       onPress={()=>{props.navigation.navigate('Profile')}}>
          
-         <FontAwesome name="user-circle" size={25} color="white"/>
+         <FontAwesome style={{marginTop: 20}} name="user-circle" size={40} color="white"/>
 
       </TouchableOpacity>
      
@@ -19,8 +21,8 @@ const Dashboard = (props) => {
    
     <View style={Style.block}>
     <TouchableOpacity style={Style.btnBack}
-onPress={()=>{props.navigation.navigate('Report')}}>
-  <Text style={Style.textStyle}>Report</Text>
+onPress={()=>{props.navigation.navigate('ReportList')}}>
+  <Text style={Style.textStyle}>Reports</Text>
   <MaterialIcons name="report" size={35} color="white"/>
    </TouchableOpacity>
 
@@ -35,19 +37,6 @@ onPress={()=>{props.navigation.navigate('map')}}>
   <Fontisto name="map" size={35} color="white"/>
    </TouchableOpacity>
       </View>
-      <View style={{marginTop:50,alignItems:'center'}}>
-       <TouchableOpacity
-       onPress={()=>{props.navigation.navigate('About')}}>
-
-          <Text style={{
-      fontSize:30,
-      fontWeight:"bold",
-      color:'#84D2F6',
-      marginRight:10}}>About</Text>
-
-       </TouchableOpacity>
-
-      </View>
 
   </ScrollView>
   
@@ -57,15 +46,17 @@ const Style = StyleSheet.create({
 headerBlock:{width:'100%',
              backgroundColor:'#84D2F6' ,
              paddingTop:20,
+             paddingBottom: 20,
              alignItems:'center',
              flexDirection:'row',
-             marginBottom:20},
+             marginBottom:150},
 headerText:{fontSize:32,
            marginVertical:5,
            fontWeight:'bold',
            color:'white',
            paddingLeft:100,
-           marginRight:60},
+           marginRight:60,
+           marginTop: 20},
   btnBack:{
       backgroundColor:"#84D2F6",
       width:'80%',

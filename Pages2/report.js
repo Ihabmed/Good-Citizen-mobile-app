@@ -1,49 +1,55 @@
-import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, TextInput, Button, ScrollView } from 'react-native';
+import Header from './Header.js';
 
- 
-export default function App() {
+
+
+const style = StyleSheet.create({
+    text:
+    {
+      fontWeight: 'bold',
+      fontSize: 25,
+      marginTop: 20, 
+      marginLeft: 20
+    },
+    input: {
+      height: 60,
+      width: 375,
+      borderColor: '#ADD8E6',
+      marginLeft: 20,
+      marginBottom: 5,
+      borderRadius: 5,
+      borderWidth: 4,
+      padding: 10
+    },
+  }
+)
+
+export let data = []
+
+function Report(props) {
+  const [title, setTitle] = React.useState('');
+  const [incidentLocation, setIncidentLocation] = React.useState('');
+  const [content, setContent] = React.useState('');
   return (
-    <View>
-      <Header Title='Report'/>
-      <ReportInfo label='Title :'/>
-      <ReportInfo label='Incident Location :' />
-      <ReportInfo label='Content :' />
-      <Button title='Submit' />
-    </View>
-  );
-}
-
-
-function ReportInfo ({label})
-{
-  return (
-    <>
-      <Text style={{fontWeight: 'bold', fontSize: 25, marginTop: 20, marginLeft: 20,}}>
-        {label}
+    <ScrollView>
+      <Header title='Report' />
+      <Text style={style.text}>
+        Title :
       </Text>
-      <TextInput style={{
-        height: 60,
-        width: 375,
-        borderColor: '#ADD8E6',
-        marginLeft: 20,
-        marginBottom: 5,
-        borderRadius: 5,
-        borderWidth: 4,
-        padding: 10
-      }} />
-    </>
+      <TextInput style={style.input} onChangeText={(inp) => setTitle(inp)} />
+      <Text style={style.text}>
+        Incident Location :
+      </Text>
+      <TextInput style={style.input} onChangeText={(inp) => setIncidentLocation(inp)} />
+      <Text style={style.text}>
+        Content :
+      </Text>
+      <TextInput style={[style.input, {height: 240}]} onChangeText={(inp) => setContent(inp)}/>
+      <Button title='Submit' onPress={()=>{props.navigation.navigate('ReportList');}} />
+    </ScrollView>
   );
 }
 
 
-function Header ({Title})
-{
-  return (
-    <View style={{width: '100%', backgroundColor: '#84D2F6', paddingTop: 20, alignItems: 'center', flexDirection: 'center', marginBottom: 20}}>
-    <Text style={{fontSize: 32, marginVertical:5, fontWeight: 'bold', color: 'white', paddingLeft: 100, marginRight: 60  }}>
-      {Title}
-    </Text>
-    </View>
-  );
-}
+export default Report;

@@ -1,13 +1,13 @@
 import { View, Text } from 'react-native'
 import React, { useState } from 'react'
-import TextEnter from '../components/TextEnter'
-import Btn from '../components/btn'
+import TextEnter from './TextEnter'
+import Btn from './btn'
 
 
 
 
 
-const profileInfo = (props) => {
+const ProfileInfo = (props) => {
 
     let [Name,setName]=useState("User")
     let [lName,setlName]=useState("Name")
@@ -21,13 +21,13 @@ const profileInfo = (props) => {
           <TextEnter placeholder="Edit your first name :" onChangeText={fnm => setName(fnm)} />
           <TextEnter placeholder="Edit your last name" onChangeText={lnm => setlName(lnm)} />
           <TextEnter placeholder="Edit your phone number" onChangeText={phn => setPhoneNum(phn)} />
-          <TextEnter placeholder="Edit your password" secureText={true} onChangeText={psw => setPassword(psw)} />
+          <TextEnter placeholder="Edit your password" secureTextEntry={true} onChangeText={psw => setPassword(psw)} />
            <Btn text="Save" press={()=>{props.navigation.navigate('Profile')}} />
     </View>
   )
 }
 
 
-export default profileInfo
+export default ProfileInfo
 
 
