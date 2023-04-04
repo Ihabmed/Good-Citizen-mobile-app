@@ -3,13 +3,14 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import Profile from './Pages2/Profile'
-import About from './Pages2/About'
-import stackdash from './Pages2/stackdash'
 import Dashboard from './Pages2/Dashboard'
-import report from './Pages2/report'
-import sos from './Pages2/sos'
-import map from './Pages2/map'
-import profileInfo from './Pages2/profileInfo'
+import ReportList from './Pages2/ReportList'
+import Report from './Pages2/report'
+import LogIn from './Pages2/logIn'
+import SignUp from './Pages2/signUp'
+import Sos from './Pages2/sos'
+import Map from './Pages2/map'
+import ProfileInfo from './Pages2/profileInfo'
 
 
 
@@ -21,16 +22,20 @@ const App = () => {
   return (
        <NavigationContainer>
           <Stack.Navigator 
-          initialRouteName='Dashboard'
-          headerMode="none"
+          initialRouteName='SignUp'
+          screenOptions={{
+            headerShown: false
+          }}
           >
+            <Stack.Screen name='SignUp' component={SignUp} />
+            <Stack.Screen name='LogIn' component={LogIn} />
             <Stack.Screen name='Dashboard' component={Dashboard} />
-            <Stack.Screen name='Report' component={report}/>
-            <Stack.Screen name='sos' component={sos}/>
-            <Stack.Screen name='map' component={map}/>
+            <Stack.Screen name='ReportList' component={ReportList}/>
+            <Stack.Screen name='Report' component={Report}/>
+            <Stack.Screen name='sos' component={Sos}/>
+            <Stack.Screen name='map' component={Map}/>
             <Stack.Screen name='Profile' component={Profile} />
-            <Stack.Screen name='About' component={About} />
-            <Stack.Screen name='profileInfo' component={profileInfo} />
+            <Stack.Screen name='profileInfo' component={ProfileInfo} />
 
           </Stack.Navigator>
    

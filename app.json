@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "GoodCitizen",
-    "slug": "GoodCitizen",
+    "name": "GC",
+    "slug": "GC",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
